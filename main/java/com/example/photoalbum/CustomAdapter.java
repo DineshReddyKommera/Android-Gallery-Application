@@ -23,11 +23,11 @@ public class CustomAdapter extends
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        // infalte the item Layout
+        // Inflate the item Layout
         View v =
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.rowlayout, parent,
                         false);
-        // set the view's size, margins, paddings and layout parameters
+        // set the view's size, margins, padding and layout parameters
         MyViewHolder vh = new MyViewHolder(v); // pass the view to View Holder
         return vh;
     }
@@ -37,7 +37,6 @@ public class CustomAdapter extends
                                  @SuppressLint("RecyclerView") final int position) {
         // set the data in items
         holder.image.setImageResource(imagesList.get(position));
-        // implement setOnClickListener event on item view.
     }
 
     @Override

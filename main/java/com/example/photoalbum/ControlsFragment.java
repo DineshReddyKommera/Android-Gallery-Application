@@ -67,13 +67,15 @@ public class ControlsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                 if (isChecked) {
-                    slideShow.setEnabled(false); // disable checkbox
+                    //Disabling other options
+                    slideShow.setEnabled(false);
                     previousImage.setEnabled(false);
                     nextImage.setEnabled(false);
                     imageListFragment = new ImageListFragment();
                     imageFragment=null;
                     replaceFragment();
                 } else {
+                    //Enabling other options as per the application conditions
                     slideShow.setEnabled(true);
                     previousImage.setEnabled(false);
                     nextImage.setEnabled(true);
@@ -88,9 +90,10 @@ public class ControlsFragment extends Fragment {
             @Override
             public void onCheckedChanged(CompoundButton arg0, boolean isChecked) {
                 if (isChecked) {
+                    //Disabling other options
                     previousImage.setEnabled(false);
                     nextImage.setEnabled(false);
-                    galleryView.setEnabled(false); // disable checkbox
+                    galleryView.setEnabled(false);
                      countDownTimer = new CountDownTimer((imagesList.size() - currentImageIndex - 1) * 1000, 1000) {
                         @Override
                         public void onTick(long millisUntilFinished) {
@@ -108,17 +111,21 @@ public class ControlsFragment extends Fragment {
                 } else {
                     countDownTimer.cancel();
                     currentImageIndex = (slideShowIndex == imagesList.size()) ? (slideShowIndex - 1) : slideShowIndex;
+                    //Enabling other options as per the application conditions
                     manageButtons();
                     galleryView.setEnabled(true);
                     onButtonPressListener.onButtonPressed(imagesList.get(currentImageIndex));
                 }
             }
         });
-
-
         return viewGroup;
     }
 
+    /*
+     * Through the overriding of onAttach() we are accessing onButtonPressed implemented in
+     * MainActivity
+     * @param context
+     */
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -129,6 +136,9 @@ public class ControlsFragment extends Fragment {
         }
     }
 
+    /**
+     * Enabling and disabling of navigation buttons is managed in this method.
+     */
     private void manageButtons() {
         if (currentImageIndex == 0) {
             previousImage.setEnabled(false);
@@ -142,6 +152,10 @@ public class ControlsFragment extends Fragment {
         }
     }
 
+    /**
+     * Fragment transaction between single image fragment and
+     * Gallery view fragment is managed in this method.
+     */
     private void replaceFragment(){
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
