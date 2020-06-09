@@ -2,7 +2,7 @@ package com.example.photoalbum;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -67,9 +67,9 @@ public class ImageListFragment extends Fragment {
         // Inflate the layout for this fragment
         ViewGroup root = (ViewGroup) inflater.inflate(R.layout.fragment_image_list, container, false);
         RecyclerView recyclerView = (RecyclerView) root.findViewById(R.id.recyclerView);
-        LinearLayoutManager linearLayoutManager = new
-                LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(linearLayoutManager);
+        GridLayoutManager gridLayoutManager = new
+                GridLayoutManager(getActivity(),3,GridLayoutManager.VERTICAL,false);
+        recyclerView.setLayoutManager(gridLayoutManager);
         CustomAdapter customAdapter = new CustomAdapter(getActivity(),
                 imagesList);
         recyclerView.setAdapter(customAdapter);

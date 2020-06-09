@@ -13,20 +13,22 @@
 
         <Button
             android:id="@+id/mBtnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="80dp"
+            android:layout_height="42dp"
             android:layout_marginStart="388dp"
             android:layout_marginTop="4dp"
             android:text="@string/next"
+            android:background="@drawable/state_change_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/mBtnPrevious"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="79dp"
+            android:layout_height="44dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="432dp"
+            android:layout_marginEnd="416dp"
+            android:background="@drawable/state_change_button"
             android:text="@string/previous"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />

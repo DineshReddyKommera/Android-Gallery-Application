@@ -33,6 +33,7 @@ public class ControlsFragment extends Fragment {
     OnButtonPressListener onButtonPressListener;
     ImageFragment imageFragment = null;
     ImageListFragment imageListFragment = null;
+    CountDownTimer countDownTimer=null;
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +75,7 @@ public class ControlsFragment extends Fragment {
                     replaceFragment();
                 } else {
                     slideShow.setEnabled(true);
-                    previousImage.setEnabled(true);
+                    previousImage.setEnabled(false);
                     nextImage.setEnabled(true);
                     imageFragment = new ImageFragment();
                     imageListFragment=null;
@@ -90,7 +91,7 @@ public class ControlsFragment extends Fragment {
                     previousImage.setEnabled(false);
                     nextImage.setEnabled(false);
                     galleryView.setEnabled(false); // disable checkbox
-                    final CountDownTimer countDownTimer = new CountDownTimer((imagesList.size() - currentImageIndex - 1) * 1000, 1000) {
+                     countDownTimer = new CountDownTimer((imagesList.size() - currentImageIndex - 1) * 1000, 1000) {
                         @Override
                         public void onTick(long millisUntilFinished) {
                             Log.d("in Tick", String.valueOf(currentImageIndex));
@@ -105,6 +106,7 @@ public class ControlsFragment extends Fragment {
                     };
                     countDownTimer.start();
                 } else {
+                    countDownTimer.cancel();
                     currentImageIndex = (slideShowIndex == imagesList.size()) ? (slideShowIndex - 1) : slideShowIndex;
                     manageButtons();
                     galleryView.setEnabled(true);
