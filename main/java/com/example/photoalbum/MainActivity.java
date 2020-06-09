@@ -20,6 +20,10 @@ public class MainActivity extends AppCompatActivity implements OnButtonPressList
         imageFragment.onFragmentInteracation(imageID);
     }
 
+    /**
+     *Adding fragment that displays single image to fragment_container layout as a default
+     * behaviour when application is opened.
+     */
     private void addFragment(){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();

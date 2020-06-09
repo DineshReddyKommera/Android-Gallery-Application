@@ -27,6 +27,10 @@ public class ImageFragment extends Fragment {
         return viewGroup;
     }
 
+    /**
+     * Based on the navigation button action, the image is loaded into UI in this method.
+     * @param imageID (Resource)
+     */
     public void onFragmentInteracation(Integer imageID){
         image.setImageResource(imageID);
     }
