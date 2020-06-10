@@ -22,6 +22,10 @@ import com.example.photoalbum.OnButtonPressListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * A {@link ControlsFragment}, subclass of {@link Fragment}
+ * used to place PhotoAlbum controls.
+ */
 public class ControlsFragment extends Fragment {
     Button nextImage;
     Button previousImage;
@@ -154,8 +158,8 @@ public class ControlsFragment extends Fragment {
     }
 
     /**
-     * Fragment transaction between single image fragment and
-     * Gallery view fragment is managed in this method.
+     * Fragment transaction between {@link ImageFragment} and
+     * {@link ImageListFragment} is managed in this method.
      */
     private void replaceFragment(){
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
