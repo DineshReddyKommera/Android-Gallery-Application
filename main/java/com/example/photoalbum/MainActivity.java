@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonPressList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        loadFragment(R.drawable.image1,"Next"); // fragment is loaded with first image from the list
+        loadFragment(R.drawable.image1,Animation.SLIDE_RIGHT); // fragment is loaded with first image from the list
     }
 
     /**
@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity implements OnButtonPressList
      * @param direction
      */
     @Override
-    public void onButtonPressed(Integer imageID,String direction) {
+    public void onButtonPressed(Integer imageID,Integer direction) {
         loadFragment(imageID,direction);
     }
 
@@ -30,16 +30,19 @@ public class MainActivity extends AppCompatActivity implements OnButtonPressList
      * @param direction specifies in which direction image navigation
      * is taking place
      */
-    private void loadFragment(Integer imageID,String direction){
+    private void loadFragment(Integer imageID,Integer direction){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
         ImageFragment imageFragment=new ImageFragment(imageID);
-        if(direction.equals("Next"))
-        fragmentTransaction.setCustomAnimations(R.anim.enter, R.anim.exit)
-                .replace(R.id.fragment_container,imageFragment);
-        else
-            fragmentTransaction.setCustomAnimations(R.anim.pop_enter, R.anim.pop_exit)
+        if(direction == Animation.SLIDE_RIGHT)
+            fragmentTransaction.setCustomAnimations(R.anim.right_to_left_enter, R.anim.right_to_left_exit)
                     .replace(R.id.fragment_container,imageFragment);
+        else if(direction == Animation.SLIDE_LEFT)
+            fragmentTransaction.setCustomAnimations(R.anim.left_to_right_enter, R.anim.left_to_right_exit)
+                .replace(R.id.fragment_container,imageFragment);
+        else {
+            fragmentTransaction.replace(R.id.fragment_container,imageFragment);
+        }
         fragmentTransaction.commit();
     }
 }

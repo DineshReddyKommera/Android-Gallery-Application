@@ -53,14 +53,14 @@ public class ControlsFragment extends Fragment {
         nextImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonPressListener.onButtonPressed(imagesList.get(++currentImageIndex),"Next");
+                onButtonPressListener.onButtonPressed(imagesList.get(++currentImageIndex),Animation.SLIDE_RIGHT);
                 manageButtons();
             }
         });
         previousImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                onButtonPressListener.onButtonPressed(imagesList.get(--currentImageIndex),"Previous");
+                onButtonPressListener.onButtonPressed(imagesList.get(--currentImageIndex),Animation.SLIDE_LEFT);
                 manageButtons();
             }
         });
@@ -103,7 +103,7 @@ public class ControlsFragment extends Fragment {
                         @Override
                         public void onTick(long millisUntilFinished) {
                             Log.d("in Tick", String.valueOf(currentImageIndex));
-                            onButtonPressListener.onButtonPressed(imagesList.get(++currentImageIndex),"Next");
+                            onButtonPressListener.onButtonPressed(imagesList.get(++currentImageIndex),Animation.SLIDE_RIGHT);
                             slideShowIndex = currentImageIndex;
                         }
 
@@ -119,7 +119,7 @@ public class ControlsFragment extends Fragment {
                     //Enabling other options as per the application conditions
                     manageButtons();
                     galleryView.setEnabled(true);
-                    onButtonPressListener.onButtonPressed(imagesList.get(currentImageIndex),"Next");
+                    onButtonPressListener.onButtonPressed(imagesList.get(currentImageIndex),Animation.NO_ANIMATION);
                 }
             }
         });
