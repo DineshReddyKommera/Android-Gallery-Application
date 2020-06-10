@@ -3,8 +3,8 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
+    <string name="next"> &gt;&gt; </string>
+    <string name="previous"> &lt;&lt; </string>
     <string name="gallery_view">Gallery View</string>
     <string name="slide_show">Slide Show</string>
 </resources>

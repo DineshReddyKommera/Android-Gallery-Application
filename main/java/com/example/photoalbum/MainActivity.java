@@ -11,24 +11,22 @@ public class MainActivity extends AppCompatActivity implements OnButtonPressList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        addFragment();
+        loadFragment(R.drawable.image1); // fragment is loaded with first image from the list
     }
 
     @Override
     public void onButtonPressed(Integer imageID) {
-        ImageFragment imageFragment=(ImageFragment) getSupportFragmentManager().findFragmentById(R.id.fragment_container);
-        imageFragment.onFragmentInteracation(imageID);
+        loadFragment(imageID);
     }
 
     /**
-     *Adding fragment that displays single image to fragment_container layout as a default
-     * behaviour when application is opened.
+     * Fragment is loaded with default imageId or imageId send from control fragment
      */
-    private void addFragment(){
+    private void loadFragment(Integer imageID){
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction=fragmentManager.beginTransaction();
-        ImageFragment imageFragment=new ImageFragment();
-        fragmentTransaction.add(R.id.fragment_container,imageFragment);
+        ImageFragment imageFragment=new ImageFragment(imageID);
+        fragmentTransaction.replace(R.id.fragment_container,imageFragment);
         fragmentTransaction.commit();
     }
 }

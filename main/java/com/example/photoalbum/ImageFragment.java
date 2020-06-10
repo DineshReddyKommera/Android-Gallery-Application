@@ -1,5 +1,6 @@
 package com.example.photoalbum;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -10,8 +11,20 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 
+@SuppressLint("ValidFragment")
 public class ImageFragment extends Fragment {
     ImageView image;
+    int imageResId;
+
+
+    /**
+     * Constructor used for setting the image id for each  fragment
+     * @param imageID (Resource)
+     */
+    @SuppressLint("ValidFragment")
+    ImageFragment(Integer imageID){
+        imageResId=imageID;
+    }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -23,15 +36,8 @@ public class ImageFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         ViewGroup viewGroup=(ViewGroup)inflater.inflate(R.layout.fragment_image,container,false);
         image=viewGroup.findViewById(R.id.mImageView);
-        image.setImageResource(R.drawable.image1);
+        image.setImageResource(imageResId);
         return viewGroup;
     }
 
-    /**
-     * Based on the navigation button action, the image is loaded into UI in this method.
-     * @param imageID (Resource)
-     */
-    public void onFragmentInteracation(Integer imageID){
-        image.setImageResource(imageID);
-    }
 }

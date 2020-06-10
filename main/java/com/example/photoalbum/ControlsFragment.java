@@ -76,10 +76,11 @@ public class ControlsFragment extends Fragment {
                     replaceFragment();
                 } else {
                     //Enabling other options as per the application conditions
+                    currentImageIndex=0;
                     slideShow.setEnabled(true);
                     previousImage.setEnabled(false);
                     nextImage.setEnabled(true);
-                    imageFragment = new ImageFragment();
+                    imageFragment = new ImageFragment(R.drawable.image1);
                     imageListFragment=null;
                     replaceFragment();
                 }
