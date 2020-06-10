@@ -10,7 +10,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-
+/**
+ * A {@link ImageFragment} class, subclass of {@link Fragment}
+ * to display Image in PhotoAlbum
+ */
 @SuppressLint("ValidFragment")
 public class ImageFragment extends Fragment {
     ImageView image;
