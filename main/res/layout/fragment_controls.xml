@@ -27,10 +27,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="272dp"
+            android:layout_marginEnd="244dp"
+            android:background="@drawable/state_change_button"
             android:text="@string/previous"
             android:textSize="30dp"
-            android:background="@drawable/state_change_button"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,7 +38,7 @@
             android:id="@+id/mChkBoxGalleryView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="36dp"
+            android:layout_marginStart="64dp"
             android:layout_marginTop="16dp"
             android:text="@string/gallery_view"
             app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +49,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="72dp"
+            android:layout_marginEnd="84dp"
             android:text="@string/slide_show"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/mBtnNext" />
